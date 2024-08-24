@@ -12,7 +12,17 @@ int is_prime(int n)
     return 0;
   }
 
-  for (int i = 2; i <= sqrt(n); ++i)
+  if (n == 2)
+  {
+    return 1;
+  }
+
+  if (n % 2 == 0)
+  {
+    return 0;
+  }
+
+  for (int i = 3; i <= sqrt(n); ++i)
   {
     if (n % i == 0)
     {
@@ -24,9 +34,9 @@ int is_prime(int n)
 
 int main()
 {
-  int numbers[4] = {3, 69, 7, -420};
+  int numbers[7] = {3, 69, 7, -420, 2, 4, 0};
 
-  for (int i = 0; i < 4; ++i)
+  for (int i = 0; i < 7; ++i)
   {
     printf("(0) == not prime; (1) == prime:\n");
     printf("Is %d prime? %d\n", numbers[i], is_prime(numbers[i]));
